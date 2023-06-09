@@ -26,7 +26,7 @@ export async function getStaticProps() {
   };
 
   const headers = {
-    Authorization: "Bearer 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",
+    Authorization: "",
     Accept: "application/vnd.github+json",
   };
 

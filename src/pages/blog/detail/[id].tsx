@@ -13,7 +13,7 @@ export default function DetailPage({html}: InferGetStaticPropsType<typeof getSta
 
 export async function getStaticPaths() {
   return {
-    paths: [],
+    paths: [{params: {id: "1"}}],
     fallback: false
   }
 }
@@ -26,7 +26,6 @@ export async function getStaticProps() {
   };
 
   const headers = {
-    Authorization: "",
     Accept: "application/vnd.github+json",
   };
 

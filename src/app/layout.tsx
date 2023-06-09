@@ -1,4 +1,5 @@
 import { Inter } from 'next/font/google'
+import 'github-markdown-css'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -13,7 +14,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={"markdown-body"}>
       <body className={inter.className}>{children}</body>
     </html>
   )

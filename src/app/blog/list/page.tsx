@@ -7,8 +7,8 @@ export default function page() {
 
   return (
     <>
-      <div className="container mx-lg">
-        <div className={"flex-col justify-center"}>
+      <div className="flex flex-col">
+        <div>
           {articleList.map((item) =>
             <div key={item.id}>
               <Link href={`/blog/detail/${item.id}`}>
@@ -19,6 +19,7 @@ export default function page() {
         </div>
 
       </div>
+
     </>
   )
 };

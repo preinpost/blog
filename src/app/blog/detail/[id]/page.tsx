@@ -1,74 +1,60 @@
 import fsPromises from 'fs/promises';
-import axios from "axios";
 import {unescape} from "querystring";
 
-type PageParams = {
-    id: string;
+type PageId = {
+  id: string;
 };
 
 type PageProps = {
-    params: PageParams;
+  params: PageId;
 };
 
 export default async function DetailPage({params}: PageProps) {
-    const html = await getHTML(params);
+  const html = await getHTML(params);
 
-    return (
-        <>
-            <div dangerouslySetInnerHTML={{__html: html}}></div>
-        </>
-    )
+
+  return (
+    <>
+      <div>제목</div>
+      <div dangerouslySetInnerHTML={{__html: html}}></div>
+    </>
+  )
 };
 
-export async function generateStaticParams() {
-    const fs = require('fs');
-    const publicPath = "public/article";
 
-    const articleIdObject = fs.readdirSync(publicPath)
-        .filter((l: string) => !l.startsWith("."))
-        .map((l: string) => {
-            console.log("path = ", l);
-            return {
-                id: l
-            }
-        });
+async function getHTML(params: PageId) {
+  let data = await fsPromises.readFile(`public/article/${unescape(params.id)}/page.md`, 'utf-8');
+  const blogUrl = "https://preinpost.github.io";
 
-    return [...articleIdObject]
-}
+  const imagePattern = /^!\[.*\)/gm;
 
-async function getHTML(params: PageParams) {
-    let data = await fsPromises.readFile(`public/article/${unescape(params.id)}/hello.md`, 'utf-8');
-    const blogUrl = "https://preinpost.github.io";
+  data = data.replace(imagePattern, function (match) {
+    const innerSquarePatter = /(?<=\().+?(?=\))/;
 
-    const imagePattern = /^!\[.*\)/gm;
-
-    data = data.replace(imagePattern, function (match) {
-        const innerSquarePatter = /(?<=\().+?(?=\))/;
-
-        match = match.replace(innerSquarePatter, function (innerMatch) {
-            return `${blogUrl}/article/${innerMatch}`
-        });
-
-        return match;
+    match = match.replace(innerSquarePatter, function (innerMatch) {
+      return `${blogUrl}/article/${innerMatch}`
     });
 
-    const url = "https://api.github.com/markdown";
-    const payload = {
-        text: data
-    };
+    return match;
+  });
 
-    const headers = {
-        Accept: "application/vnd.github+json",
-    };
+  const url = "https://api.github.com/markdown";
+  const payload = {
+    text: data
+  };
 
-    let html = data;
+  const headers = {
+    Accept: "application/vnd.github+json",
+  };
 
-    // try {
-    //     html = (await axios.post(url, payload, {headers,})).data;
-    // } catch(e) {
-    //     console.error(e);
-    // }
+  let html = data;
 
-    return html;
+  // try {
+  //     html = (await axios.post(url, payload, {headers,})).data;
+  // } catch(e) {
+  //     console.error(e);
+  // }
+
+  return html;
 }
 

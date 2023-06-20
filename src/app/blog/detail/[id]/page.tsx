@@ -11,6 +11,7 @@ type PageProps = {
 };
 
 export default async function DetailPage({params}: PageProps) {
+  console.log("params = ", params)
   const html = await getHTML(params);
 
 
@@ -24,6 +25,7 @@ export default async function DetailPage({params}: PageProps) {
 
 
 async function getHTML(params: PageId) {
+  console.log("params.id = ", unescape(params.id));
   let data = await fsPromises.readFile(`public/article/${unescape(params.id)}/page.md`, 'utf-8');
   const blogUrl = "https://preinpost.github.io";
 

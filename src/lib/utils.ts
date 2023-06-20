@@ -4,7 +4,7 @@ type ArticleInfo = {
 }
 
 type ArticleMeta = {
-  id: string;
+  title: string;
   tag: string[];
   date: string;
 };

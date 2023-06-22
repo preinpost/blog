@@ -24,7 +24,7 @@ export default async function DetailPage({params}: PageProps) {
   )
 };
 
-export async function generateStaticParams() {
+export async function generateStaticParams(): Promise<PageId[]> {
   const fs = require('fs');
   const publicPath = "public/article";
 

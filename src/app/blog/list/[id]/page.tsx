@@ -1,6 +1,7 @@
 import {readArticleInfo} from "@/lib/utils";
 import Link from "next/link";
 import PageNavigation from "@/app/blog/client/PageNavigation";
+import {range} from "@/lib/fp";
 
 export default function page({params}: PageProps) {
   const articleList = readArticleInfo();
@@ -48,7 +49,7 @@ export default function page({params}: PageProps) {
 };
 
 
-export async function generateStaticParams() {
+export async function generateStaticParams(): Promise<PageId[]> {
   const fs = require('fs');
   const publicPath = "public/article";
 
@@ -59,6 +60,10 @@ export async function generateStaticParams() {
 
   const totalPage = Math.floor(articleIdObject.length / 10) + 1;
 
-  return Array(totalPage).keys();
+  return range(1, totalPage + 1).map(l => {
+    return {
+      id: String(l)
+    }
+  });
 }
 

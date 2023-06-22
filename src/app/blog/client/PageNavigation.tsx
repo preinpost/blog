@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link";
+import {range} from "@/lib/fp";
 
 export default function PageNavigation({totalCount, offset, currentPage}: {
   totalCount: number,
@@ -85,10 +86,3 @@ export default function PageNavigation({totalCount, offset, currentPage}: {
   );
 }
 
-function range(start: number, end: number) {
-  const arr = [];
-  for (let i = start; i < end; i++) {
-    arr.push(i);
-  }
-  return arr;
-}

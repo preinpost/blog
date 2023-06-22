@@ -23,9 +23,5 @@ export function readArticleInfo(): ArticleInfo[] {
           meta: parsed
         }
       }
-
-      return {
-        id: l
-      }
     });
 }

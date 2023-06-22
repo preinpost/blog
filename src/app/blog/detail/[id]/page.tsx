@@ -1,17 +1,24 @@
 import fsPromises from 'fs/promises';
 import {unescape} from "querystring";
 import axios from "axios";
+import fs from "fs";
+import toml from "toml";
 
 
 export default async function DetailPage({params}: PageProps) {
   console.log("params = ", params)
-  const html = await getHTML(params);
-
+  const data = await getHTML(params);
 
   return (
     <>
-      <div>제목</div>
-      <div dangerouslySetInnerHTML={{__html: html}}></div>
+      <div className="flex flex-col w-3/4 self-center">
+        <div className="text-4xl">{data.meta?.title}</div>
+        <div className="mt-3 mb-1 border-b border-dashed"></div>
+        <div className="mb-20 text-lg self-end">{data.meta?.date}</div>
+
+        <div dangerouslySetInnerHTML={{__html: data.html}}></div>
+      </div>
+
     </>
   )
 };
@@ -31,9 +38,10 @@ export async function generateStaticParams() {
   return [...articleIdObject]
 }
 
-async function getHTML(params: PageId) {
+async function getHTML(params: PageId): Promise<ArticleDetail> {
   console.log("params.id = ", unescape(params.id));
-  let data = await fsPromises.readFile(`public/article/${unescape(params.id)}/page.md`, 'utf-8');
+  const publicPath = "public/article";
+  let data = await fsPromises.readFile(`${publicPath}/${unescape(params.id)}/page.md`, 'utf-8');
   const blogUrl = "https://preinpost.github.io";
 
   const imagePattern = /^!\[.*\)/gm;
@@ -65,6 +73,20 @@ async function getHTML(params: PageId) {
   //     console.error(e);
   // }
 
-  return html;
+  const tomlFilePath = `${publicPath}/${unescape(params.id)}/meta.toml`;
+
+  if (fs.existsSync(tomlFilePath)) {
+    const read = fs.readFileSync(tomlFilePath, "utf-8");
+    const parsed = toml.parse(read);
+
+    return {
+      html: html,
+      meta: parsed
+    }
+  }
+
+  return {
+    html,
+  };
 }
 

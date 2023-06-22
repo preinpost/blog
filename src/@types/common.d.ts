@@ -16,3 +16,8 @@ type ArticleMeta = {
   tag: string[];
   date: string;
 };
+
+type ArticleDetail = {
+  html: string,
+  meta?: ArticleMeta
+}

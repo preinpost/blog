@@ -1,7 +1,7 @@
 import {readArticleInfo} from "@/lib/utils";
 import Link from "next/link";
 
-export default function page({params}: { params: PageId }) {
+export default function page({params}: PageProps) {
   const articleList = readArticleInfo();
   const currentPage = parseInt(params.id);
 

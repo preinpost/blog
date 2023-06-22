@@ -1,5 +1,6 @@
 import {readArticleInfo} from "@/lib/utils";
 import Link from "next/link";
+import PageNavigation from "@/app/blog/client/PageNavigation";
 
 export default function page({params}: PageProps) {
   const articleList = readArticleInfo();
@@ -14,7 +15,7 @@ export default function page({params}: PageProps) {
     <>
       <div className="flex flex-col items-center">
         {articleList
-          .sort(function (a, b){
+          .sort(function (a, b) {
             return new Date(b.meta!.date).getTime() - new Date(a.meta!.date).getTime()
           })
           .slice(startItem, endItem)
@@ -41,6 +42,7 @@ export default function page({params}: PageProps) {
             </Link>
           )}
       </div>
+      <PageNavigation totalCount={articleList.length} offset={offset} currentPage={parseInt(params.id)}/>
     </>
   );
 };
@@ -59,3 +61,4 @@ export async function generateStaticParams() {
 
   return Array(totalPage).keys();
 }
+

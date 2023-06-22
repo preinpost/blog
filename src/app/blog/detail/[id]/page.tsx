@@ -7,7 +7,6 @@ import Utterances from "@/app/blog/client/Utterances";
 
 
 export default async function DetailPage({params}: PageProps) {
-  console.log("params = ", params)
   const data = await getHTML(params);
 
   return (
@@ -41,7 +40,6 @@ export async function generateStaticParams() {
 }
 
 async function getHTML(params: PageId): Promise<ArticleDetail> {
-  console.log("params.id = ", unescape(params.id));
   const publicPath = "public/article";
   let data = await fsPromises.readFile(`${publicPath}/${unescape(params.id)}/page.md`, 'utf-8');
   const blogUrl = "https://preinpost.github.io";

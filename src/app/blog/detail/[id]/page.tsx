@@ -1,15 +1,7 @@
 import fsPromises from 'fs/promises';
 import {unescape} from "querystring";
 import axios from "axios";
-import fs from "fs";
 
-type PageId = {
-  id: string;
-};
-
-type PageProps = {
-  params: PageId;
-};
 
 export default async function DetailPage({params}: PageProps) {
   console.log("params = ", params)
@@ -31,7 +23,6 @@ export async function generateStaticParams() {
   const articleIdObject = fs.readdirSync(publicPath)
     .filter((l: string) => !l.startsWith("."))
     .map((l: string) => {
-      console.log("path = ", l);
       return {
         id: l
       }

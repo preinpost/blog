@@ -1,13 +1,4 @@
-type ArticleInfo = {
-  id: string,
-  meta?: ArticleMeta
-}
-
-type ArticleMeta = {
-  title: string;
-  tag: string[];
-  date: string;
-};
+import fs from "fs";
 
 /**
  * public/article 아래의 directory list를 가져오는 함수

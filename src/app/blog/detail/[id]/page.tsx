@@ -3,6 +3,7 @@ import {unescape} from "querystring";
 import axios from "axios";
 import fs from "fs";
 import toml from "toml";
+import Utterances from "@/app/blog/client/Utterances";
 
 
 export default async function DetailPage({params}: PageProps) {
@@ -19,6 +20,7 @@ export default async function DetailPage({params}: PageProps) {
         <div dangerouslySetInnerHTML={{__html: data.html}}></div>
       </div>
 
+      <Utterances/>
     </>
   )
 };

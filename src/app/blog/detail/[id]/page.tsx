@@ -7,6 +7,9 @@ import Utterances from "@/app/blog/client/Utterances";
 import ContentArea from "@/app/blog/client/ContentArea";
 import Tag from "@/app/blog/client/Tag";
 
+import {Metadata} from "next";
+import {isEmptyObject, readMetaFile} from "@/lib/utils";
+
 
 export default async function DetailPage({params}: PageProps) {
   const data = await getHTML(params);
@@ -50,6 +53,15 @@ export async function generateStaticParams(): Promise<PageId[]> {
   return [...articleIdObject]
 }
 
+export const generateMetadata = async ({params}: PageProps): Promise<Metadata> => {
+  let meta = readMetaFile(params.id);
+
+  return {
+    title: meta.title,
+    description: meta.id,
+  }
+}
+
 async function getHTML(params: PageId): Promise<ArticleDetail> {
   const publicPath = "public/article";
   let data = await fsPromises.readFile(`${publicPath}/${unescape(params.id)}/page.md`, 'utf-8');
@@ -80,28 +92,23 @@ async function getHTML(params: PageId): Promise<ArticleDetail> {
 
   if (process.env.NODE_ENV === 'production') {
     try {
-        html = (await axios.post(url, payload, {headers,})).data;
-    } catch(e) {
-        console.error(e);
+      html = (await axios.post(url, payload, {headers,})).data;
+    } catch (e) {
+      console.error(e);
     }
   }
 
+  const parsed = readMetaFile(params.id);
 
-
-  const tomlFilePath = `${publicPath}/${unescape(params.id)}/meta.toml`;
-
-  if (fs.existsSync(tomlFilePath)) {
-    const read = fs.readFileSync(tomlFilePath, "utf-8");
-    const parsed = toml.parse(read);
-
+  if (isEmptyObject(parsed)) {
+    return {
+      html,
+    };
+  } else {
     return {
       html: html,
       meta: parsed
     }
   }
-
-  return {
-    html,
-  };
 }
 

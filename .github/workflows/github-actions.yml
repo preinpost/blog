@@ -1,0 +1,25 @@
+name: update blog
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: npm i
+      - run: npm run build:prod
+      - run: touch out/.nojekyll
+
+      - name: Pushes to another repository
+        uses: cpina/github-action-push-to-another-repository@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.BLOG_SECRET }}
+        with:
+          source-directory: 'out'
+          destination-github-username: 'preinpost'
+          destination-repository-name: 'preinpost.github.io'
+          commit-message: ${{ github.event.commits[0].message }}
+          target-branch: master

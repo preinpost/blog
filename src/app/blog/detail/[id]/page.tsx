@@ -5,6 +5,7 @@ import fs from "fs";
 import toml from "toml";
 import Utterances from "@/app/blog/client/Utterances";
 import ContentArea from "@/app/blog/client/ContentArea";
+import Tag from "@/app/blog/client/Tag";
 
 
 export default async function DetailPage({params}: PageProps) {
@@ -15,13 +16,20 @@ export default async function DetailPage({params}: PageProps) {
       <div
         className="flex flex-col rounded-lg bg-indigo-900 bg-opacity-30 p-6 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
         <div className="text-lg">{data.meta?.title}</div>
-        <div className="text-sm self-end">{data.meta?.date}</div>
+        <div className="flex text-sm self-end">
+          <div>{data.meta?.date}</div>
+        </div>
       </div>
 
       <div
-        className="mt-8 border border-white rounded-lg bg-opacity-10 p-6 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
+        className="mt-8 border border-white rounded-lg border-opacity-30 p-6 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
         <div dangerouslySetInnerHTML={{__html: data.html}}></div>
       </div>
+
+      <div className="mt-8 flex">
+        {data.meta?.tag.map((tag) => <Tag key={tag} tagName={tag}/>)}
+      </div>
+
       <Utterances/>
     </ContentArea>
   )

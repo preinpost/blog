@@ -1,3 +1,3 @@
-tag = ["java", "spring"]  
+tag = ["java", "spring", "config"]
 date = "2023-06-24"  
 title = "h2 in-memory 사용시, db client로 접속하는 방법"

@@ -11,7 +11,7 @@ export default async function DetailPage({params}: PageProps) {
 
   return (
     <>
-      <div className="flex flex-col w-3/4 self-center">
+      <div className="flex flex-col w-1/2 self-center">
         <div className="text-4xl">{data.meta?.title}</div>
         <div className="mt-3 mb-1 border-b border-dashed"></div>
         <div className="mb-20 text-lg self-end">{data.meta?.date}</div>

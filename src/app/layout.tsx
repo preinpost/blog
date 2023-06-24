@@ -1,7 +1,7 @@
 import {Inter} from 'next/font/google'
 import 'github-markdown-css'
 import './globals.css'
-import Link from "next/link";
+import Header from "@/app/blog/client/Header";
 
 const inter = Inter({subsets: ['latin']})
 
@@ -20,21 +20,7 @@ export default function RootLayout({
     <html lang="en" className="markdown-body">
     <body className={`${inter.className} flex flex-col`}>
     <div className="flex flex-col my-8 w-11/12 h-auto self-center">
-      <div className="flex mb-36">
-        <div className="flex justify-center items-center text-3xl mx-6 h-12">
-          <Link style={{textDecoration: "none"}} href={"/blog/list/1"}>
-            <div className="text-white">preinpost log</div>
-          </Link>
-        </div>
-        <div className="flex ml-auto">
-          <div className="flex justify-center items-center mx-6 h-12 w-28 rounded-lg border-2 border-sky-400">
-            list
-          </div>
-          <div className="flex justify-center items-center mx-6 h-12 w-28 rounded-lg border-2 border-sky-400">
-            about
-          </div>
-        </div>
-      </div>
+      <Header/>
       {children}
     </div>
     </body>

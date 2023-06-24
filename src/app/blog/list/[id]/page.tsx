@@ -2,6 +2,7 @@ import {readArticleInfo} from "@/lib/utils";
 import Link from "next/link";
 import PageNavigation from "@/app/blog/client/PageNavigation";
 import {range} from "@/lib/fp";
+import Tag from "@/app/blog/client/Tag";
 
 export default function page({params}: PageProps) {
   const articleList = readArticleInfo();
@@ -24,7 +25,7 @@ export default function page({params}: PageProps) {
             <Link
               key={item.id}
               href={`/blog/detail/${item.id}`}
-              className="hover:no-underline w-2/3"
+              className="hover:no-underline w-1/2"
               style={{textDecoration: "none"}}
             >
               <div className="p-5 my-3 border-2 rounded-xl border-sky-400 text-white shadow-lg shadow-indigo-500/50"
@@ -36,7 +37,7 @@ export default function page({params}: PageProps) {
                 <div className="flex">
                   <div className="ml-1">{item.meta?.date}</div>
                   <div className="flex ml-auto">
-                    tag: {item.meta?.tag.map((tag) => <div key={item.id + tag} className="mx-1">{tag}</div>)}
+                    {item.meta?.tag.map((tag) => <Tag key={item.id + tag} tagName={tag}/>)}
                   </div>
                 </div>
               </div>

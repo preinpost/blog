@@ -70,11 +70,15 @@ async function getHTML(params: PageId): Promise<ArticleDetail> {
 
   let html = data;
 
-  // try {
-  //     html = (await axios.post(url, payload, {headers,})).data;
-  // } catch(e) {
-  //     console.error(e);
-  // }
+  if (process.env.NODE_ENV === 'production') {
+    try {
+        html = (await axios.post(url, payload, {headers,})).data;
+    } catch(e) {
+        console.error(e);
+    }
+  }
+
+
 
   const tomlFilePath = `${publicPath}/${unescape(params.id)}/meta.toml`;
 

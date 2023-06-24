@@ -3,6 +3,7 @@ import Link from "next/link";
 import PageNavigation from "@/app/blog/client/PageNavigation";
 import {range} from "@/lib/fp";
 import Tag from "@/app/blog/client/Tag";
+import ListPage from "@/app/blog/client/ListPage";
 
 export default function page({params}: PageProps) {
   const articleList = readArticleInfo();
@@ -22,26 +23,7 @@ export default function page({params}: PageProps) {
           })
           .slice(startItem, endItem)
           .map((item) =>
-            <Link
-              key={item.id}
-              href={`/blog/detail/${item.id}`}
-              className="hover:no-underline w-1/2"
-              style={{textDecoration: "none"}}
-            >
-              <div className="p-5 my-3 border-2 rounded-xl border-sky-400 text-white shadow-lg shadow-indigo-500/50"
-                   key={item.id}>
-                <div className="flex">
-                  <div className="mr-5 text-xl">{item.meta?.title}</div>
-                </div>
-
-                <div className="flex">
-                  <div className="ml-1">{item.meta?.date}</div>
-                  <div className="flex ml-auto">
-                    {item.meta?.tag.map((tag) => <Tag key={item.id + tag} tagName={tag}/>)}
-                  </div>
-                </div>
-              </div>
-            </Link>
+            <ListPage key={'list' + item.id} item={JSON.stringify(item)} />
           )}
       </div>
       <PageNavigation totalCount={articleList.length} offset={offset} currentPage={parseInt(params.id)}/>

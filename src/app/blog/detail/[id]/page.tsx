@@ -12,11 +12,16 @@ export default async function DetailPage({params}: PageProps) {
   return (
     <>
       <div className="flex flex-col w-1/2 self-center">
-        <div className="text-4xl">{data.meta?.title}</div>
-        <div className="mt-3 mb-1 border-b border-dashed"></div>
-        <div className="mb-20 text-lg self-end">{data.meta?.date}</div>
+        <div
+          className="flex flex-col rounded-lg bg-indigo-900 bg-opacity-30 p-6 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
+          <div className="text-lg">{data.meta?.title}</div>
+          <div className="text-sm self-end">{data.meta?.date}</div>
+        </div>
 
-        <div dangerouslySetInnerHTML={{__html: data.html}}></div>
+        <div className="mt-8 rounded-lg bg-gray-500 bg-opacity-10 p-6 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
+          <div dangerouslySetInnerHTML={{__html: data.html}}></div>
+        </div>
+
       </div>
 
       <Utterances/>

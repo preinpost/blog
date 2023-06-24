@@ -19,7 +19,7 @@ export default async function DetailPage({params}: PageProps) {
       </div>
 
       <div
-        className="mt-8 rounded-lg bg-gray-500 bg-opacity-10 p-6 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
+        className="mt-8 border border-white rounded-lg bg-opacity-10 p-6 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
         <div dangerouslySetInnerHTML={{__html: data.html}}></div>
       </div>
       <Utterances/>

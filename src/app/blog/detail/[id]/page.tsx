@@ -4,28 +4,26 @@ import axios from "axios";
 import fs from "fs";
 import toml from "toml";
 import Utterances from "@/app/blog/client/Utterances";
+import ContentArea from "@/app/blog/client/ContentArea";
 
 
 export default async function DetailPage({params}: PageProps) {
   const data = await getHTML(params);
 
   return (
-    <>
-      <div className="flex flex-col w-1/2 self-center">
-        <div
-          className="flex flex-col rounded-lg bg-indigo-900 bg-opacity-30 p-6 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
-          <div className="text-lg">{data.meta?.title}</div>
-          <div className="text-sm self-end">{data.meta?.date}</div>
-        </div>
-
-        <div className="mt-8 rounded-lg bg-gray-500 bg-opacity-10 p-6 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
-          <div dangerouslySetInnerHTML={{__html: data.html}}></div>
-        </div>
-
+    <ContentArea>
+      <div
+        className="flex flex-col rounded-lg bg-indigo-900 bg-opacity-30 p-6 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
+        <div className="text-lg">{data.meta?.title}</div>
+        <div className="text-sm self-end">{data.meta?.date}</div>
       </div>
 
+      <div
+        className="mt-8 rounded-lg bg-gray-500 bg-opacity-10 p-6 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
+        <div dangerouslySetInnerHTML={{__html: data.html}}></div>
+      </div>
       <Utterances/>
-    </>
+    </ContentArea>
   )
 };
 

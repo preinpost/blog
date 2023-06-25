@@ -64,11 +64,12 @@ export async function generateStaticParams(): Promise<PageId[]> {
 
 export async function generateMetadata({params}: PageProps): Promise<Metadata> {
   const meta = readMetaFile(params.id);
+  const blogUrl = "https://preinpost.github.io";
 
   return {
     openGraph: {
       title: meta.title,
-      images: "public/" + getTitleImagePathForClient(params.id)
+      images: `${blogUrl}/public${getTitleImagePathForClient(params.id)}`
     }
   }
 }

@@ -1,18 +1,18 @@
 import fsPromises from 'fs/promises';
 import {unescape} from "querystring";
 import axios from "axios";
-import fs from "fs";
-import toml from "toml";
 import Utterances from "@/app/blog/client/Utterances";
 import ContentArea from "@/app/blog/client/ContentArea";
 import Tag from "@/app/blog/client/Tag";
 
 import {Metadata} from "next";
-import {isEmptyObject, readMetaFile} from "@/lib/utils";
+import {getTitleImagePathForClient, isEmptyObject, readMetaFile} from "@/lib/utils";
+import Image from "next/image";
 
 
 export default async function DetailPage({params}: PageProps) {
   const data = await getHTML(params);
+  const getImage = getTitleImagePathForClient(params.id);
 
   return (
     <ContentArea>
@@ -23,6 +23,15 @@ export default async function DetailPage({params}: PageProps) {
           <div>{data.meta?.date}</div>
         </div>
       </div>
+
+      {
+        getImage !== "" ?
+          <div className="m-32 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
+            <Image src={getImage} alt={"title-image"} width={100} height={100} className="w-full"/>
+          </div>
+          :
+          <></>
+      }
 
       <div
         className="mt-8 border border-white rounded-lg border-opacity-30 p-6 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
@@ -53,12 +62,14 @@ export async function generateStaticParams(): Promise<PageId[]> {
   return [...articleIdObject]
 }
 
-export const generateMetadata = async ({params}: PageProps): Promise<Metadata> => {
-  let meta = readMetaFile(params.id);
+export async function generateMetadata({params}: PageProps): Promise<Metadata> {
+  const meta = readMetaFile(params.id);
 
   return {
-    title: meta.title,
-    description: meta.id,
+    openGraph: {
+      title: meta.title,
+      images: "public/" + getTitleImagePathForClient(params.id)
+    }
   }
 }
 

@@ -28,7 +28,6 @@ export function readArticleInfo(): ArticleInfo[] {
     });
 }
 
-
 export function readMetaFile(id: string) {
   const publicPath = "public/article";
   const tomlFilePath = `${publicPath}/${unescape(id)}/meta.toml`;
@@ -38,6 +37,21 @@ export function readMetaFile(id: string) {
     return toml.parse(read);
   } else {
     return {};
+  }
+}
+
+export function getTitleImagePathForClient(id: string) {
+  const publicPath = "public/article";
+
+  if (fs.existsSync(`${publicPath}/${unescape(id)}/title-image.png`)) {
+    return `/article/${unescape(id)}/title-image.png`;
+  }
+  else if (fs.existsSync(`${publicPath}/${unescape(id)}/title-image.jpg`)) {
+    return `/article/${unescape(id)}/title-image.jpg`
+  } else if (fs.existsSync(`${publicPath}/${unescape(id)}/title-image.jpeg`)) {
+    return `/article/${unescape(id)}/title-image.jpeg`;
+  } else {
+    return "";
   }
 }
 

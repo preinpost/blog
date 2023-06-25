@@ -69,7 +69,7 @@ export async function generateMetadata({params}: PageProps): Promise<Metadata> {
   return {
     openGraph: {
       title: meta.title,
-      images: `${blogUrl}/public${getTitleImagePathForClient(params.id)}`
+      images: `${blogUrl}${getTitleImagePathForClient(params.id)}`
     }
   }
 }

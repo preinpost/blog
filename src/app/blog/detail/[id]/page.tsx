@@ -83,18 +83,6 @@ async function getHTML(params: PageId): Promise<ArticleDetail> {
 
   const imagePattern = /^!\[.*\)/gm;
 
-  data = data.replace(imagePattern, function (match) {
-    const innerSquarePatter = /(?<=\().+?(?=\))/;
-
-    match = match.replace(innerSquarePatter, function (innerMatch) {
-      return `${blogUrl}/master/article/${innerMatch}`
-    });
-
-    console.log("match = ", match);
-
-    return match;
-  });
-
   const url = "https://api.github.com/markdown";
   const payload = {
     text: data
@@ -113,6 +101,16 @@ async function getHTML(params: PageId): Promise<ArticleDetail> {
       console.error(e);
     }
   }
+
+  html = html.replace(imagePattern, function (match) {
+    const innerSquarePatter = /(?<=\().+?(?=\))/;
+
+    match = match.replace(innerSquarePatter, function (innerMatch) {
+      return `${blogUrl}/master/article/${innerMatch}`
+    });
+
+    return match;
+  });
 
   const parsed = readMetaFile(params.id);
 

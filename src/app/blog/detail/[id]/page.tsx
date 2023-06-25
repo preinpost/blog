@@ -67,6 +67,8 @@ export async function generateMetadata({params}: PageProps): Promise<Metadata> {
   const blogUrl = "https://preinpost.github.io";
 
   return {
+    title: meta.title,
+
     openGraph: {
       title: meta.title,
       images: `${blogUrl}${getTitleImagePathForClient(params.id)}`

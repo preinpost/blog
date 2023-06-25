@@ -1,8 +1,6 @@
 import {readArticleInfo} from "@/lib/utils";
-import Link from "next/link";
 import PageNavigation from "@/app/blog/client/PageNavigation";
 import {range} from "@/lib/fp";
-import Tag from "@/app/blog/client/Tag";
 import ListPage from "@/app/blog/client/ListPage";
 
 export default function page({params}: PageProps) {
@@ -30,7 +28,6 @@ export default function page({params}: PageProps) {
     </>
   );
 };
-
 
 export async function generateStaticParams(): Promise<PageId[]> {
   const fs = require('fs');

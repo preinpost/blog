@@ -87,8 +87,10 @@ async function getHTML(params: PageId): Promise<ArticleDetail> {
     const innerSquarePatter = /(?<=\().+?(?=\))/;
 
     match = match.replace(innerSquarePatter, function (innerMatch) {
-      return `${blogUrl}/article/${unescape(innerMatch)}`
+      return `${blogUrl}/master/article/${innerMatch}`
     });
+
+    console.log("match = ", match);
 
     return match;
   });

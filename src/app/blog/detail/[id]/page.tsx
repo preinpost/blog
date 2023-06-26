@@ -5,6 +5,8 @@ import Utterances from "@/app/blog/client/Utterances";
 import ContentArea from "@/app/blog/client/ContentArea";
 import Tag from "@/app/blog/client/Tag";
 
+const iconv = require('iconv-lite');
+
 import {Metadata} from "next";
 import {getTitleImagePathForClient, isEmptyObject, readMetaFile} from "@/lib/utils";
 import Image from "next/image";
@@ -79,7 +81,6 @@ export async function generateMetadata({params}: PageProps): Promise<Metadata> {
 async function getHTML(params: PageId): Promise<ArticleDetail> {
   const publicPath = "public/article";
   let data = await fsPromises.readFile(`${publicPath}/${unescape(params.id)}/page.md`, 'utf-8');
-  const blogUrl = "https://preinpost.github.io";
 
   const imagePattern = /^!\[.*\)/gm;
 
@@ -87,13 +88,12 @@ async function getHTML(params: PageId): Promise<ArticleDetail> {
     const innerSquarePatter = /(?<=\().+?(?=\))/;
 
     match = match.replace(innerSquarePatter, function (innerMatch) {
-      return `/article/${innerMatch}`;
+      return `/article/DIRECTORY_NAME/${innerMatch.split("/")[1]}`;
     });
 
     return match;
   });
 
-  console.log("data = ", data);
 
   const url = "https://api.github.com/markdown";
   const payload = {
@@ -113,6 +113,8 @@ async function getHTML(params: PageId): Promise<ArticleDetail> {
       console.error(e);
     }
   }
+
+  html = html.replaceAll("DIRECTORY_NAME", params.id) // 한글 디렉토리 처리
 
   const parsed = readMetaFile(params.id);
 

@@ -28,15 +28,15 @@ export default async function DetailPage({params}: PageProps) {
 
       {
         getImage !== "" ?
-          <div className="m-32 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
-            <Image src={getImage} alt={"title-image"} width={100} height={100} className="w-full"/>
+          <div className="flex justify-center m-16 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
+            <Image src={getImage} alt={"title-image"} width={100} height={100} className="w-3/4"/>
           </div>
           :
           <></>
       }
 
       <div
-        className="mt-8 border border-white rounded-lg border-opacity-30 p-6 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
+        className="mt-6 border border-white rounded-lg border-opacity-30 p-6 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
         <div className="flex flex-col" dangerouslySetInnerHTML={{__html: data.html}}></div>
       </div>
 

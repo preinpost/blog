@@ -5,8 +5,6 @@ import Utterances from "@/app/blog/client/Utterances";
 import ContentArea from "@/app/blog/client/ContentArea";
 import Tag from "@/app/blog/client/Tag";
 
-const iconv = require('iconv-lite');
-
 import {Metadata} from "next";
 import {getTitleImagePathForClient, isEmptyObject, readMetaFile} from "@/lib/utils";
 import Image from "next/image";

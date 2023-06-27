@@ -6,7 +6,7 @@ import ContentArea from "@/app/blog/client/ContentArea";
 import Tag from "@/app/blog/client/Tag";
 
 import {Metadata} from "next";
-import {getTitleImagePathForClient, isEmptyObject, readMetaFile} from "@/lib/utils";
+import {getArticleImageList, getTitleImagePathForClient, isEmptyObject, readMetaFile} from "@/lib/utils";
 import Image from "next/image";
 
 
@@ -82,15 +82,17 @@ async function getHTML(params: PageId): Promise<ArticleDetail> {
 
   const imagePattern = /^!\[.*\)/gm;
 
-  data = data.replace(imagePattern, function (match) {
-    const innerSquarePatter = /(?<=\().+?(?=\))/;
-
-    match = match.replace(innerSquarePatter, function (innerMatch) {
-      return `/article/DIRECTORY_NAME/${innerMatch.split("/")[1]}`;
-    });
-
-    return match;
-  });
+  // data = data.replace(imagePattern, function (match) {
+  //   const innerSquarePatter = /(?<=\().+?(?=\))/;
+  //
+  //   match = match.replace(innerSquarePatter, function (innerMatch) {
+  //     console.log("innerMatch = ", innerMatch);
+  //
+  //     return innerMatch;
+  //   });
+  //
+  //   return match;
+  // });
 
 
   const url = "https://api.github.com/markdown";
@@ -112,7 +114,10 @@ async function getHTML(params: PageId): Promise<ArticleDetail> {
     }
   }
 
-  html = html.replaceAll("DIRECTORY_NAME", params.id) // 한글 디렉토리 처리
+  const imageNameList = getArticleImageList(params.id);
+  imageNameList.forEach((i) => {
+    html = html.replaceAll(i, `/article/${params.id}/${i}`);
+  })
 
   const parsed = readMetaFile(params.id);
 

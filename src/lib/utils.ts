@@ -55,6 +55,14 @@ export function getTitleImagePathForClient(id: string) {
   }
 }
 
+export function getArticleImageList(id: string) {
+  const publicPath = "public/article";
+  return fs.readdirSync(`${publicPath}/${unescape(id)}`)
+    .filter(f => f !== ".DS_Store")
+    .filter(f => !f.startsWith("title-image"))
+    .filter(f => f.match("^.*.[png|jpg|jpeg]$"))
+}
+
 export function isEmptyObject(param: object): boolean {
   return Object.keys(param).length === 0 && param.constructor === Object;
 }

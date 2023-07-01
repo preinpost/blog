@@ -26,7 +26,8 @@ export default async function DetailPage({params}: PageProps) {
 
       {
         getImage !== "" ?
-          <div className="flex justify-center m-16 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
+          <div
+            className="flex justify-center m-16 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
             <Image src={getImage} alt={"title-image"} width={100} height={100} className="w-3/4"/>
           </div>
           :
@@ -79,21 +80,6 @@ export async function generateMetadata({params}: PageProps): Promise<Metadata> {
 async function getHTML(params: PageId): Promise<ArticleDetail> {
   const publicPath = "public/article";
   let data = await fsPromises.readFile(`${publicPath}/${unescape(params.id)}/page.md`, 'utf-8');
-
-  const imagePattern = /^!\[.*\)/gm;
-
-  // data = data.replace(imagePattern, function (match) {
-  //   const innerSquarePatter = /(?<=\().+?(?=\))/;
-  //
-  //   match = match.replace(innerSquarePatter, function (innerMatch) {
-  //     console.log("innerMatch = ", innerMatch);
-  //
-  //     return innerMatch;
-  //   });
-  //
-  //   return match;
-  // });
-
 
   const url = "https://api.github.com/markdown";
   const payload = {

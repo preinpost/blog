@@ -18,6 +18,8 @@ obsidian 이라는 markdown 프로그램을 기록용으로 사용하고 있는�
 
 text data 를 gfm으로 바꿔주는 github api가 있어서 따로 라이브러리를 사용하지 않고 pre-rendering 시 해당 api를 호출해서 html로 변환하는 처리를 해줬다.
 
+이미지 같은 경우는 해당 각각의 글의 directory에 넣어주면, markdown image 태그로 static asset을 읽어 올 수 있도록 만들었다.
+
 코어 기능은 정의가 되었으므로 이제 화면을 이쁘게 해주는 작업을 해줘야 한다.
 이 전에 mui를 사용해 본 적 있었으나 이번에는 next.js  와 찰떡궁합이라는 tailwind css 를 사용해서 화면작업을 했다.
 

@@ -1,9 +1,9 @@
 import fsPromises from 'fs/promises';
 import {unescape} from "querystring";
 import axios from "axios";
-import Utterances from "@/app/blog/client/Utterances";
-import ContentArea from "@/app/blog/client/ContentArea";
-import Tag from "@/app/blog/client/Tag";
+import Utterances from "@/app/client/Utterances";
+import ContentArea from "@/app/client/ContentArea";
+import Tag from "@/app/client/Tag";
 
 import {Metadata} from "next";
 import {getArticleImageList, getTitleImagePathForClient, isEmptyObject, readMetaFile} from "@/lib/utils";

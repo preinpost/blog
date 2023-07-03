@@ -29,7 +29,7 @@ export default function PageNavigation({totalCount, offset, currentPage}: {
                 </svg>
               </div>
               :
-              <Link href={`/blog/list/${pageNavStart - 1}`} style={{textDecoration: "none", color: "white"}}
+              <Link href={`/list/${pageNavStart - 1}`} style={{textDecoration: "none", color: "white"}}
                     className="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-indigo-800 focus:z-20 focus:outline-offset-0">
                 <span className="sr-only">Previous</span>
                 <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -46,12 +46,12 @@ export default function PageNavigation({totalCount, offset, currentPage}: {
             .map((n) => {
               if (currentPage === n) {
                 return (
-                  <Link key={`navi-${n}`} href={`/blog/list/${n}`} style={{textDecoration: "none", color: "white"}}
+                  <Link key={`navi-${n}`} href={`/list/${n}`} style={{textDecoration: "none", color: "white"}}
                         className="items-center px-4 py-2 text-sm font-semibold ring-1 ring-inset ring-gray-300 !bg-indigo-800 hover:bg-indigo-800">{n}</Link>
                 );
               } else {
                 return (
-                  <Link key={`navi-${n}`} href={`/blog/list/${n}`} style={{textDecoration: "none", color: "white"}}
+                  <Link key={`navi-${n}`} href={`/list/${n}`} style={{textDecoration: "none", color: "white"}}
                         className="items-center px-4 py-2 text-sm font-semibold ring-1 ring-inset ring-gray-300 hover:bg-indigo-800">{n}</Link>
                 );
               }
@@ -70,7 +70,7 @@ export default function PageNavigation({totalCount, offset, currentPage}: {
                 </svg>
               </div>
               :
-              <Link href={`/blog/list/${pageNavStart + pageNaviUnit}`} style={{textDecoration: "none", color: "white"}}
+              <Link href={`/list/${pageNavStart + pageNaviUnit}`} style={{textDecoration: "none", color: "white"}}
                     className="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-indigo-800 focus:z-20 focus:outline-offset-0">
                 <span className="sr-only">Next</span>
                 <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">

@@ -1,6 +1,6 @@
 import {redirect} from "next/navigation";
 
 export default function Home() {
-  redirect('/blog/list/1')
+  redirect('/list/1')
 }
 

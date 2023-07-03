@@ -9,7 +9,7 @@ export default function Header() {
   return (
     <div className="flex mb-36">
       <div className="flex justify-center items-center mx-6 h-12">
-        <div className="text-3xl 2xs:text-xl text-white cursor-pointer" onClick={() => {router.push("/blog/list/1")}}>
+        <div className="text-3xl 2xs:text-xl text-white cursor-pointer" onClick={() => {router.push("/list/1")}}>
           preinpost log
         </div>
       </div>

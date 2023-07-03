@@ -1,7 +1,7 @@
 import {Inter} from 'next/font/google'
 import 'github-markdown-css'
 import './globals.css'
-import Header from "@/app/blog/client/Header";
+import Header from "@/app/client/Header";
 
 const inter = Inter({subsets: ['latin']})
 

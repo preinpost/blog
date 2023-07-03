@@ -1,7 +1,7 @@
 import {readArticleInfo} from "@/lib/utils";
-import PageNavigation from "@/app/blog/client/PageNavigation";
+import PageNavigation from "@/app/client/PageNavigation";
 import {range} from "@/lib/fp";
-import ListPage from "@/app/blog/client/ListPage";
+import ListPage from "@/app/client/ListPage";
 
 export default function page({params}: PageProps) {
   const articleList = readArticleInfo();

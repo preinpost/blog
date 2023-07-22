@@ -20,8 +20,8 @@ export default function ListPage({item}: { item: string }) {
         </div>
 
         <div className="flex">
-          <div className="ml-1">{parsedItem.meta?.date}</div>
-          <div className="flex ml-auto">
+          <div className="ml-1 min-w-fit">{parsedItem.meta?.date}</div>
+          <div className="flex ml-auto flex-wrap">
             {parsedItem.meta?.tag.map((tag) => <Tag key={parsedItem.id + tag} tagName={tag}/>)}
           </div>
         </div>

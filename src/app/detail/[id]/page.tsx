@@ -23,11 +23,14 @@ export default async function DetailPage({params}: PageProps) {
           <div>{data.meta?.date}</div>
         </div>
       </div>
+      <div className="flex mt-2 justify-end flex-wrap">
+        {data.meta?.tag.map((tag) => <Tag key={tag} tagName={tag}/>)}
+      </div>
 
       {
         getImage !== "" ?
           <div
-            className="flex justify-center m-16 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
+            className="flex justify-center m-16 ">
             <Image src={getImage} alt={"title-image"} width={100} height={100} className="w-3/4"/>
           </div>
           :
@@ -35,13 +38,11 @@ export default async function DetailPage({params}: PageProps) {
       }
 
       <div
-        className="mt-6 border border-white rounded-lg border-opacity-30 p-6 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
+        className="mt-6 border border-white rounded-lg border-opacity-30 p-2 lg:p-6 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
         <div className="flex flex-col" dangerouslySetInnerHTML={{__html: data.html}}></div>
       </div>
 
-      <div className="mt-8 flex">
-        {data.meta?.tag.map((tag) => <Tag key={tag} tagName={tag}/>)}
-      </div>
+
 
       <Utterances/>
     </ContentArea>

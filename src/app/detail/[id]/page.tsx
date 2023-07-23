@@ -17,7 +17,7 @@ export default async function DetailPage({params}: PageProps) {
   return (
     <ContentArea>
       <div
-        className="flex flex-col rounded-lg bg-indigo-900 bg-opacity-30 p-6 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
+        className="flex flex-col rounded-lg bg-zinc-700 bg-opacity-30 p-6 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
         <div className="text-lg">{data.meta?.title}</div>
         <div className="flex text-sm self-end">
           <div>{data.meta?.date}</div>

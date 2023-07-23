@@ -20,7 +20,7 @@ export default function PageNavigation({totalCount, offset, currentPage}: {
           {
             pageNavStart <= pageNaviUnit ?
               <div style={{textDecoration: "none", color: "white"}}
-                    className="!bg-slate-700 cursor-not-allowed relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-indigo-800 focus:z-20 focus:outline-offset-0">
+                    className="!bg-zinc-800 cursor-not-allowed relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-zinc-500 focus:z-20 focus:outline-offset-0">
                 <span className="sr-only">Previous</span>
                 <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                   <path fillRule="evenodd"
@@ -30,7 +30,7 @@ export default function PageNavigation({totalCount, offset, currentPage}: {
               </div>
               :
               <Link href={`/list/${pageNavStart - 1}`} style={{textDecoration: "none", color: "white"}}
-                    className="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-indigo-800 focus:z-20 focus:outline-offset-0">
+                    className="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-zinc-500 focus:z-20 focus:outline-offset-0">
                 <span className="sr-only">Previous</span>
                 <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                   <path fillRule="evenodd"
@@ -47,12 +47,12 @@ export default function PageNavigation({totalCount, offset, currentPage}: {
               if (currentPage === n) {
                 return (
                   <Link key={`navi-${n}`} href={`/list/${n}`} style={{textDecoration: "none", color: "white"}}
-                        className="items-center px-4 py-2 text-sm font-semibold ring-1 ring-inset ring-gray-300 !bg-indigo-800 hover:bg-indigo-800">{n}</Link>
+                        className="items-center px-4 py-2 text-sm font-semibold ring-1 ring-inset ring-gray-300 !bg-zinc-500 hover:bg-zinc-500">{n}</Link>
                 );
               } else {
                 return (
                   <Link key={`navi-${n}`} href={`/list/${n}`} style={{textDecoration: "none", color: "white"}}
-                        className="items-center px-4 py-2 text-sm font-semibold ring-1 ring-inset ring-gray-300 hover:bg-indigo-800">{n}</Link>
+                        className="items-center px-4 py-2 text-sm font-semibold ring-1 ring-inset ring-gray-300 hover:bg-zinc-500">{n}</Link>
                 );
               }
             })}
@@ -61,7 +61,7 @@ export default function PageNavigation({totalCount, offset, currentPage}: {
 
             currentPage + pageNaviUnit >= maxPage ?
               <div style={{textDecoration: "none", color: "white"}}
-                    className="!bg-slate-700 cursor-not-allowed relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-indigo-800 focus:z-20 focus:outline-offset-0">
+                    className="!bg-zinc-800 cursor-not-allowed relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-zinc-500 focus:z-20 focus:outline-offset-0">
                 <span className="sr-only">Next</span>
                 <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                   <path fillRule="evenodd"
@@ -71,7 +71,7 @@ export default function PageNavigation({totalCount, offset, currentPage}: {
               </div>
               :
               <Link href={`/list/${pageNavStart + pageNaviUnit}`} style={{textDecoration: "none", color: "white"}}
-                    className="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-indigo-800 focus:z-20 focus:outline-offset-0">
+                    className="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-zinc-500 focus:z-20 focus:outline-offset-0">
                 <span className="sr-only">Next</span>
                 <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                   <path fillRule="evenodd"

@@ -12,7 +12,7 @@ jobs:
       - run: npm i
       - run: npm run build:prod
       - run: touch out/.nojekyll
-      - run: echo "preinpost.blog" > out/CNAME
+      - run: echo "blog.preinpost.in" > out/CNAME
 
       - name: Pushes to another repository
         uses: cpina/github-action-push-to-another-repository@main

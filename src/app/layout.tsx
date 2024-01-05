@@ -17,7 +17,7 @@ export default function RootLayout({children}: { children: React.ReactNode }) {
     <html lang="en" className="markdown-body">
     <GoogleAnalytics/>
     <body className={`${inter.className} flex flex-col`}>
-    <div className="flex flex-col my-4 lg:my-8 lg:w-11/12 w-full h-auto self-center">
+    <div className="flex flex-col my-4 w-full h-auto self-center md:my-8 md:w-11/12">
       <Header/>
       {children}
     </div>

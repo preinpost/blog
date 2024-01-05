@@ -21,7 +21,7 @@ export default function ListPage({item}: { item: string }) {
 
         <div className="flex">
           <div className="ml-1 min-w-fit">{parsedItem.meta?.date}</div>
-          <div className="lg:flex hidden ml-auto flex-wrap">
+          <div className="hidden ml-auto flex-wrap md:flex">
             {/*모바일에서는 태그 안보이게 숨김*/}
             {parsedItem.meta?.tag.map((tag) => <Tag key={parsedItem.id + tag} tagName={tag}/>)}
           </div>

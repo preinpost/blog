@@ -11,11 +11,11 @@ module.exports = {
     './src/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
-    screens: {
-      '2xs': '300px',
-      'xs': '575px', // Mobile (iPhone 3 - iPhone XS Max).
-      ...defaultTheme.screens
-    },
+    // screens: {
+    //   '2xs': '300px',
+    //   'xs': '575px', // Mobile (iPhone 3 - iPhone XS Max).
+    //   ...defaultTheme.screens
+    // },
     extend: {
     },
 

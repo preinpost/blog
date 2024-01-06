@@ -14,9 +14,8 @@ export default function PageNavigation({totalCount, offset, currentPage}: {
   const maxPage = Math.floor(totalCount / offset) + 1;
 
   return (
-    <div className="flex items-center self-center justify-between mt-10 px-4 py-3 sm:px-6">
-      <div>
-        <nav className="isolate inline-flex -space-x-px rounded-md shadow-sm" aria-label="Pagination">
+    <div className="flex items-center justify-center mt-10 px-4 py-3 sm:px-6">
+      <nav className="isolate inline-flex -space-x-px rounded-md shadow-sm" aria-label="Pagination">
           {
             pageNavStart <= pageNaviUnit ?
               <div style={{textDecoration: "none", color: "white"}}
@@ -80,8 +79,7 @@ export default function PageNavigation({totalCount, offset, currentPage}: {
                 </svg>
               </Link>
           }
-        </nav>
-      </div>
+      </nav>
     </div>
   );
 }

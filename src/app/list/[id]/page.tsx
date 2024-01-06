@@ -14,7 +14,6 @@ export default function page({params}: PageProps) {
 
   return (
     <>
-      <div className="flex flex-col items-center">
         {articleList
           .sort(function (a, b) {
             return new Date(b.meta!.date).getTime() - new Date(a.meta!.date).getTime()
@@ -23,7 +22,6 @@ export default function page({params}: PageProps) {
           .map((item) =>
             <ListPage key={'list' + item.id} item={JSON.stringify(item)} />
           )}
-      </div>
       <PageNavigation totalCount={articleList.length} offset={offset} currentPage={parseInt(params.id)}/>
     </>
   );

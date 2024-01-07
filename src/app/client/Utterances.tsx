@@ -2,12 +2,27 @@
 
 import { useCallback, useEffect, useState } from "react";
 
+type ColorTheme = 'light' | 'dark';
+
+interface ColorThemeChangedEvent extends CustomEvent {
+  detail: {
+    to: ColorTheme
+  }
+}
+
+declare global {
+    interface WindowEventMap {
+        'colorThemeChanged': ColorThemeChangedEvent;
+    }
+}
+
+
 export default function Utterances() {
   const[theme, setTheme] = useState('light');
   
 
   useEffect(() => {
-    window.addEventListener('colorThemeChanged', (e) => {
+    window.addEventListener('colorThemeChanged', (e: ColorThemeChangedEvent) => {
       setTheme(e.detail.to)
       console.log("to", e.detail.to);
     });

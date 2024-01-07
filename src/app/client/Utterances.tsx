@@ -3,31 +3,45 @@
 import { useCallback, useEffect, useState } from "react";
 
 export default function Utterances() {
-  const[, updateState] = useState();
-  const forceUpdate = useCallback(() => updateState, []);
+  const[theme, setTheme] = useState('light');
+  
 
   useEffect(() => {
-    window.addEventListener('colorThemeChanged', () => {
-      
+    window.addEventListener('colorThemeChanged', (e) => {
+      setTheme(e.detail.to)
+      console.log("to", e.detail.to);
     });
 
-  });
+    if (localStorage.getItem('color-theme')) {
+      // If light, make dark and save in localstorage
+      if (localStorage.getItem('color-theme') === 'light') {
+        setTheme('github-light');
+      } else {
+        setTheme('github-dark');
+      }
+    } else {
+      setTheme('github-light');
+    }
+  }, [theme]);
+  
+  return utterancesSection('theme');
 
-  return utterancesSection;
 }
 
-const utterancesSection = <section className="mt-32"
-    ref={(elem) => {
-      if (!elem) {
-        return;
-      }
-      const scriptElem = document.createElement('script');
-      scriptElem.src = 'https://utteranc.es/client.js';
-      scriptElem.async = true;
-      scriptElem.setAttribute('repo', 'preinpost/preinpost.github.io');
-      scriptElem.setAttribute('issue-term', 'pathname');
-      scriptElem.setAttribute('theme', 'github-dark');
-      scriptElem.crossOrigin = 'anonymous';
-      elem.appendChild(scriptElem);
-    }}
-  />
+function utterancesSection(theme: string){
+  return <section className="mt-32"
+      ref={(elem) => {
+        if (!elem) {
+          return;
+        }
+        const scriptElem = document.createElement('script');
+        scriptElem.src = 'https://utteranc.es/client.js';
+        scriptElem.async = true;
+        scriptElem.setAttribute('repo', 'preinpost/preinpost.github.io');
+        scriptElem.setAttribute('issue-term', 'pathname');
+        scriptElem.setAttribute('theme', theme);
+        scriptElem.crossOrigin = 'anonymous';
+        elem.appendChild(scriptElem);
+      }}
+    />
+} 

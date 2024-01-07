@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 
-type ColorTheme = 'light' | 'dark';
+type ColorTheme = 'github-light' | 'github-dark';
 
 interface ColorThemeChangedEvent extends CustomEvent {
   detail: {
@@ -18,7 +18,7 @@ declare global {
 
 
 export default function Utterances() {
-  const[theme, setTheme] = useState('light');
+  const[theme, setTheme] = useState<ColorTheme>('github-light');
   
 
   useEffect(() => {
@@ -29,7 +29,7 @@ export default function Utterances() {
 
     if (localStorage.getItem('color-theme')) {
       // If light, make dark and save in localstorage
-      if (localStorage.getItem('color-theme') === 'light') {
+      if (localStorage.getItem('color-theme') === 'github-light') {
         setTheme('github-light');
       } else {
         setTheme('github-dark');
@@ -39,11 +39,11 @@ export default function Utterances() {
     }
   }, [theme]);
   
-  return utterancesSection('theme');
+  return utterancesSection(theme);
 
 }
 
-function utterancesSection(theme: string){
+function utterancesSection(theme: ColorTheme){
   return <section className="mt-32"
       ref={(elem) => {
         if (!elem) {

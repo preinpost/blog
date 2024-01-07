@@ -19,6 +19,7 @@ export default function Header() {
         window.matchMedia('(prefers-color-scheme: dark)').matches)
     ) {
       themeToggleLightIcon!.classList.remove('hidden')
+      document.documentElement.classList.toggle('dark');
     } else {
       themeToggleDarkIcon!.classList.remove('hidden')
     }

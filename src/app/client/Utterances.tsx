@@ -29,7 +29,7 @@ export default function Utterances() {
 
     if (localStorage.getItem('color-theme')) {
       // If light, make dark and save in localstorage
-      if (localStorage.getItem('color-theme') === 'github-light') {
+      if (localStorage.getItem('color-theme') === 'light') {
         setTheme('github-light');
       } else {
         setTheme('github-dark');

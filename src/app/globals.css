@@ -15,10 +15,12 @@ p:has(> a > img) {
     align-self: center;
 }
 
-@media (prefers-color-scheme: dark) {
-    .markdown-body {
-        --color-canvas-default: #1E1F1E !important;
-    }
+.markdown-body {
+    background-color: inherit !important;
+}
+
+.markdown-body img {
+    background-color: inherit !important;
 }
 
 /* HAMBURGER MENU */

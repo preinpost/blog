@@ -17,6 +17,13 @@ module.exports = {
             lg: "1020px",
             xl: "1440px",
         },
+        extend: {
+            colors: {
+                grayishBlack: "#1F1F1F",
+                softWhite: "#F7F7F7",
+            },
+        },
     },
     plugins: [],
+    darkMode: 'class'
 };

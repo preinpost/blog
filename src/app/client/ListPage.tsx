@@ -12,7 +12,7 @@ export default function ListPage({item}: { item: string }) {
   return (
       <>
         <div
-          className="flex flex-col cursor-pointer p-6 my-8 rounded-lg bg-zinc-700 bg-opacity-30 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]"
+          className="flex flex-col cursor-pointer p-6 my-8 rounded-lg bg-grayishBlack text-softWhite dark:bg-softWhite dark:text-grayishBlack opacity-90 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]"
           onClick={() => router.push(`/detail/${parsedItem.id}`)}
         >
           <div className="flex">

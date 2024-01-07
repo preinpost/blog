@@ -16,7 +16,7 @@ export default function RootLayout({children}: { children: React.ReactNode }) {
   return (
     <html lang="en" className="markdown-body">
     <GoogleAnalytics/>
-    <body>
+    <body className="bg-softWhite dark:bg-grayishBlack">
       <div className={`container relative mx-auto p-6 ${inter.className}`}>
         {/* Mobile Button */}
         <div id="mobile-menu" className="fixed inset-0 z-20 hidden flex-col items-center self-end w-full h-full min-h-screen px-6 py-1 pt-24 pb-4 tracking-widest text-white uppercase divide-y divide-gray-500 opacity-90 bg-slate-500">

@@ -2,7 +2,7 @@
 
 export default function ContentArea({children}: {children: React.ReactNode}) {
   return (
-    <div className="flex flex-col self-center">
+    <div className="flex flex-col">
       {children}
     </div>
   )

@@ -38,7 +38,7 @@ export default async function DetailPage({params}: PageProps) {
       }
 
       <div
-        className="mt-6 p-2 shadow-md">
+        className="mt-6 p-2">
         <div className="flex flex-col bg-softWhite text-grayishBlack dark:bg-grayishBlack dark:text-softWhite" dangerouslySetInnerHTML={{__html: data.html}}></div>
       </div>
 

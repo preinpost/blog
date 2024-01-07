@@ -1,7 +1,22 @@
 "use client"
 
+import { useCallback, useEffect, useState } from "react";
+
 export default function Utterances() {
-  return <section className="mt-32"
+  const[, updateState] = useState();
+  const forceUpdate = useCallback(() => updateState, []);
+
+  useEffect(() => {
+    window.addEventListener('colorThemeChanged', () => {
+      
+    });
+
+  });
+
+  return utterancesSection;
+}
+
+const utterancesSection = <section className="mt-32"
     ref={(elem) => {
       if (!elem) {
         return;
@@ -16,4 +31,3 @@ export default function Utterances() {
       elem.appendChild(scriptElem);
     }}
   />
-}

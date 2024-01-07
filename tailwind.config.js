@@ -20,10 +20,10 @@ module.exports = {
         extend: {
             colors: {
                 grayishBlack: "#1F1F1F",
-                softWhite: "#F7F7F7",
+                softWhite: "#dcdde1",
             },
         },
     },
     plugins: [],
-    darkMode: 'class'
+    darkMode: "class",
 };

@@ -52,9 +52,13 @@ export default function Header() {
           localStorage.setItem('color-theme', 'dark');
         }
       }
+
+      const event = new CustomEvent('colorThemeChanged', { detail: {
+        'to': document.documentElement.classList.contains('dark') ? 'dark' : 'light' }
+      })
+      
+      window.dispatchEvent(event);
     }
-
-
   }, []);
 
   return (

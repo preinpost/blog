@@ -47,49 +47,8 @@ html {
     --color-danger-fg: #cf222e !important
 }
 
-html.dark {
-    --color-prettylights-syntax-comment: #8b949e !important;
-    --color-prettylights-syntax-constant: #79c0ff !important;
-    --color-prettylights-syntax-entity: #d2a8ff !important;
-    --color-prettylights-syntax-storage-modifier-import: #c9d1d9 !important;
-    --color-prettylights-syntax-entity-tag: #7ee787 !important;
-    --color-prettylights-syntax-keyword: #ff7b72 !important;
-    --color-prettylights-syntax-string: #a5d6ff !important;
-    --color-prettylights-syntax-variable: #ffa657 !important;
-    --color-prettylights-syntax-brackethighlighter-unmatched: #f85149 !important;
-    --color-prettylights-syntax-invalid-illegal-text: #f0f6fc !important;
-    --color-prettylights-syntax-invalid-illegal-bg: #8e1519 !important;
-    --color-prettylights-syntax-carriage-return-text: #f0f6fc !important;
-    --color-prettylights-syntax-carriage-return-bg: #b62324 !important;
-    --color-prettylights-syntax-string-regexp: #7ee787 !important;
-    --color-prettylights-syntax-markup-list: #f2cc60 !important;
-    --color-prettylights-syntax-markup-heading: #1f6feb !important;
-    --color-prettylights-syntax-markup-italic: #c9d1d9 !important;
-    --color-prettylights-syntax-markup-bold: #c9d1d9 !important;
-    --color-prettylights-syntax-markup-deleted-text: #ffdcd7 !important;
-    --color-prettylights-syntax-markup-deleted-bg: #67060c !important;
-    --color-prettylights-syntax-markup-inserted-text: #aff5b4 !important;
-    --color-prettylights-syntax-markup-inserted-bg: #033a16 !important;
-    --color-prettylights-syntax-markup-changed-text: #ffdfb6 !important;
-    --color-prettylights-syntax-markup-changed-bg: #5a1e02 !important;
-    --color-prettylights-syntax-markup-ignored-text: #c9d1d9 !important;
-    --color-prettylights-syntax-markup-ignored-bg: #1158c7 !important;
-    --color-prettylights-syntax-meta-diff-range: #d2a8ff !important;
-    --color-prettylights-syntax-brackethighlighter-angle: #8b949e !important;
-    --color-prettylights-syntax-sublimelinter-gutter-mark: #484f58 !important;
-    --color-prettylights-syntax-constant-other-reference-link: #a5d6ff !important;
-    --color-fg-default: #c9d1d9 !important;
-    --color-fg-muted: #8b949e !important;
-    --color-fg-subtle: #6e7681 !important;
-    --color-canvas-default: #0d1117 !important;
-    --color-canvas-subtle: #161b22 !important;
-    --color-border-default: #30363d !important;
-    --color-border-muted: #21262d !important;
-    --color-neutral-muted: hsla(215, 8%, 47%, .4) !important;
-    --color-accent-fg: #58a6ff !important;
-    --color-accent-emphasis: #1f6feb !important;
-    --color-attention-subtle: rgba(187, 128, 9, .15) !important;
-    --color-danger-fg: #f85149 !important
+.markdown-body {
+    color-scheme: light !important;
 }
 
 a {
@@ -150,12 +109,12 @@ p:has(> a > img) {
     transform: translateY(0px);
     position: absolute;
     top: 50px;
-    right: 25px;
+    right: 50px;
 }
 
 .open .hamburger-top {
     transform: rotate(45deg) translateY(6px) translateX(6px);
-    background-color: #fff;
+    background-color: #000;
 }
 
 .open .hamburger-middle {
@@ -164,5 +123,5 @@ p:has(> a > img) {
 
 .open .hamburger-bottom {
     transform: rotate(-45deg) translateY(6px) translateX(-6px);
-    background-color: #fff;
+    background-color: #000;
 }

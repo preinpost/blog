@@ -1,9 +1,9 @@
-import {readArticleInfo} from "@/lib/utils";
+import { readArticleInfo } from "@/lib/utils";
 import PageNavigation from "@/app/client/PageNavigation";
-import {range} from "@/lib/fp";
+import { range } from "@/lib/fp";
 import ListPage from "@/app/client/ListPage";
 
-export default function page({params}: PageProps) {
+export default function page({ params }: PageProps) {
   const articleList = readArticleInfo();
   const currentPage = parseInt(params.id);
 
@@ -14,15 +14,15 @@ export default function page({params}: PageProps) {
 
   return (
     <>
-        {articleList
-          .sort(function (a, b) {
-            return new Date(b.meta!.date).getTime() - new Date(a.meta!.date).getTime()
-          })
-          .slice(startItem, endItem)
-          .map((item) =>
-            <ListPage key={'list' + item.id} item={JSON.stringify(item)} />
-          )}
-      <PageNavigation totalCount={articleList.length} offset={offset} currentPage={parseInt(params.id)}/>
+      {articleList
+        .sort(function (a, b) {
+          return new Date(b.meta!.date).getTime() - new Date(a.meta!.date).getTime()
+        })
+        .slice(startItem, endItem)
+        .map((item) =>
+          <ListPage key={'list' + item.id} item={JSON.stringify(item)} />
+        )}
+      <PageNavigation totalCount={articleList.length} offset={offset} currentPage={parseInt(params.id)} />
     </>
   );
 };

@@ -1,16 +1,16 @@
 import fsPromises from 'fs/promises';
-import {unescape} from "querystring";
+import { unescape } from "querystring";
 import axios from "axios";
 import Utterances from "@/app/client/Utterances";
 import ContentArea from "@/app/client/ContentArea";
 import Tag from "@/app/client/Tag";
 
-import {Metadata} from "next";
-import {getArticleImageList, getTitleImagePathForClient, isEmptyObject, readMetaFile} from "@/lib/utils";
+import { Metadata } from "next";
+import { getArticleImageList, getTitleImagePathForClient, isEmptyObject, readMetaFile } from "@/lib/utils";
 import Image from "next/image";
 
 
-export default async function DetailPage({params}: PageProps) {
+export default async function DetailPage({ params }: PageProps) {
   const data = await getHTML(params);
   const getImage = getTitleImagePathForClient(params.id);
 
@@ -24,7 +24,7 @@ export default async function DetailPage({params}: PageProps) {
         </div>
       </div>
       <div className="flex mt-2 justify-end flex-wrap">
-        {data.meta?.tag.map((tag) => <Tag key={tag} tagName={tag}/>)}
+        {data.meta?.tag.map((tag) => <Tag key={tag} tagName={tag} />)}
       </div>
 
       {
@@ -39,12 +39,10 @@ export default async function DetailPage({params}: PageProps) {
 
       <div
         className="mt-6 p-2">
-        <div className="flex flex-col bg-softWhite text-grayishBlack dark:bg-grayishBlack dark:text-softWhite" dangerouslySetInnerHTML={{__html: data.html}}></div>
+        <div className="flex flex-col bg-softWhite text-grayishBlack dark:bg-grayishBlack dark:text-softWhite" dangerouslySetInnerHTML={{ __html: data.html }}></div>
       </div>
 
-
-
-      <Utterances/>
+      <Utterances />
     </ContentArea>
   )
 };
@@ -64,7 +62,7 @@ export async function generateStaticParams(): Promise<PageId[]> {
   return [...articleIdObject]
 }
 
-export async function generateMetadata({params}: PageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const meta = readMetaFile(params.id);
   const blogUrl = "https://preinpost.github.io";
 
@@ -95,7 +93,7 @@ async function getHTML(params: PageId): Promise<ArticleDetail> {
 
   if (process.env.NODE_ENV === 'production') {
     try {
-      html = (await axios.post(url, payload, {headers,})).data;
+      html = (await axios.post(url, payload, { headers, })).data;
     } catch (e) {
       console.error(e);
     }

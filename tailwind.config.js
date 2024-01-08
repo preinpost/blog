@@ -23,6 +23,9 @@ module.exports = {
                 softWhite: "#dcdde1",
             },
         },
+        fontFamily: {
+            sans: ["Ubuntu Mono", 'sans-serif'],
+        },
     },
     plugins: [],
     darkMode: "class",

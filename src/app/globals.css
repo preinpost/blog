@@ -48,7 +48,7 @@
         --color-danger-fg: #cf222e !important
     }
 
-    ol ul {
+    ol, ul {
         list-style: disc;
     }
 }

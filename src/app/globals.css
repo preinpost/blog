@@ -115,7 +115,7 @@ p:has(> a > img) {
     transform: translateY(0px);
     position: absolute;
     top: 50px;
-    right: 50px;
+    right: 24px;
 }
 
 .open .hamburger-top {

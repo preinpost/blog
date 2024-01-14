@@ -25,7 +25,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Header />
           {children}
           <Footer />
-          <div id="toast-alert" className="toast toast-center toast-bottom z-50 hidden">
+          <div id="toast-alert" className="toast toast-center toast-top z-50 hidden">
             <div className="alert alert-info">
             </div>
           </div>

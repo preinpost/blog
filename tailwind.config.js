@@ -15,18 +15,26 @@ module.exports = {
             sm: "480px",
             md: "768px",
             lg: "1020px",
-            xl: "1440px",
         },
         extend: {
             colors: {
                 grayishBlack: "#1F1F1F",
                 softWhite: "#dcdde1",
             },
+            backgroundColor: {
+                "protoss-pylon": "#00a8ff",
+                "paradise-green": "#b8e994",
+                "fusion-red": "#fc5c65",
+            },
         },
         fontFamily: {
-            sans: ["Ubuntu Mono", 'sans-serif'],
+            sans: ["Ubuntu Mono", "sans-serif"],
+            "noto-sans": ["Noto Sans Korean", "sans-serif"],
         },
     },
-    plugins: [],
+    daisyui: {
+        themes: ["light"],
+    },
+    plugins: [require("daisyui")],
     darkMode: "class",
 };

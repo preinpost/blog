@@ -53,8 +53,24 @@
     }
 }
 
+.language-badge-color {
+    @apply bg-protoss-pylon text-white;
+}
+
+.framework-badge-color {
+    @apply bg-paradise-green;
+}
+
+.tool-badge-color {
+    @apply bg-fusion-red text-white;
+}
+
 .markdown-body {
     color-scheme: light !important;
+}
+
+.ficon:hover {
+    filter: invert(79%) sepia(30%) saturate(464%) hue-rotate(210deg) brightness(89%) contrast(20%);
 }
 
 a {

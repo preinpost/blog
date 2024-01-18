@@ -21,10 +21,10 @@ export default async function AboutPage() {
       </section>
 
 
-      <section className="flex flex-col text-lg md:text-2xl font-noto-sans">
+      <section className="flex flex-col text-lg md:text-2xl font-noto-sans leading-1">
         <p>안녕하세요 Fullstack 개발자 이민수 입니다.</p>
         <p>만 3년차 개발자로 주로 Java를 사용하여 업무하고 있습니다.</p>
-        <p>탄탄한 기본기를 가지고 있어 어떤 언어나 프레임워크를 금방 익히고 사용할 수 있습니다.</p>
+        <p>탄탄한 기본기를 바탕으로 어떤 언어나 프레임워크를 금방 익히고 사용할 수 있습니다.</p>
       </section>
 
       <section id="core-tech">
@@ -37,6 +37,7 @@ export default async function AboutPage() {
               <div className="badge language-badge-color">JavaScript</div>
               <div className="badge language-badge-color">TypeScript</div>
               <div className="badge language-badge-color">Python</div>
+              <div className="badge language-badge-color">C</div>
               <div className="badge language-badge-color">Rust</div>
             </div>
             <h4>Framework/Library</h4>
@@ -45,6 +46,7 @@ export default async function AboutPage() {
               <div className="badge framework-badge-color">React</div>
               <div className="badge framework-badge-color">Vue.js</div>
               <div className="badge framework-badge-color">Next.js</div>
+              <div className="badge framework-badge-color">Nuxt.js</div>
             </div>
 
             <h4>Tool/Etc</h4>
@@ -69,7 +71,7 @@ export default async function AboutPage() {
             <h4 className="card-title">[ 2023.02 ~ 진행중 ]</h4>
             <div className="font-bold">저축은행중앙회 신규 서비스 개발 프로젝트</div>
             <ul>
-              <li>사용 기술 : Java, Jsp, jQuery, Oracle</li>
+              <li>사용 기술 : Java, Jsp, jQuery, Oracle, MyBatis</li>
               <li>사용 프레임워크 : JEX/Nexcore 프레임워크</li>
               <li>담당업무 1. 화면 개발 및 코어뱅킹 개발 (BC체크카드 발급/결제/정산)</li>
               <li>담당업무 2. 자사 신규서비스 화면 개발 및 연동</li>

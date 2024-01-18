@@ -137,6 +137,7 @@ export default async function AboutPage() {
             <a href="https://apps.apple.com/kr/app/eclipsetimer-track-my-daily/id6453854152" target="_blank">링크</a>
             <div>
               코딩테스트 연습을 위한 맥용 앱입니다.
+              Swift/SwiftUi 를 사용해서 개발하였습니다.
             </div>
 
           </div>

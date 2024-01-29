@@ -24,7 +24,7 @@ export default async function AboutPage() {
       <section className="flex flex-col text-lg md:text-2xl font-noto-sans leading-1">
         <p>안녕하세요 Fullstack 개발자 이민수 입니다.</p>
         <p>만 3년차 개발자로 주로 Java를 사용하여 업무하고 있습니다.</p>
-        <p>탄탄한 기본기를 바탕으로 어떤 언어나 프레임워크를 금방 익히고 사용할 수 있습니다.</p>
+        <p>현재 금융권 SI/SM 프로젝트에 참여하고 있습니다.</p>
       </section>
 
       <section id="core-tech">

@@ -54,6 +54,7 @@ networks:
 ```
 
 메인 노드에서 `http://couchdb2:5984/[path]` `http://couchdb3:5984/[path]` 호출하도록 하기 위해 구성하였다.
+
 실제로 메인 노드에서 `podman exec -it bash [container id]` 로 컨테이너에 접속하여 `curl http://couchdb2:5984/_up` 명령어를 날려보면 `{"status":"ok","seeds":{}}` 응답이 정상적으로 온다.
 
 # 원인
@@ -68,7 +69,9 @@ networks:
 ```
 > [참고했던 글](https://stackoverflow.com/questions/48709281/couchdb-this-database-failed-to-load-no-db-shards-could-be-opened-logged-in)
 
-컨테이너에 접속하여 `cat /opt/couchdb/etc/vm.args` 을 해보면 위와 같이 설정되는데, env 값으로 `NODENAME=couchdb3` 을 넣은 값이 들어가게된다. 이렇게 들어가도 되어야 할거 같긴한데... (자세히 아시는분은 댓글 부탁드려요) 도커 컨테이너가 올라갈 때 고정 ip를 컨테이너에 부여하는 방식으로 해결할 수 있었다.
+컨테이너에 접속하여 `cat /opt/couchdb/etc/vm.args` 을 해보면 위와 같이 설정되는데, env 값으로 `NODENAME=couchdb3` 을 넣은 값이 들어가게된다.
+
+이렇게 들어가도 되어야 할거 같긴한데... (자세히 아시는분은 댓글 부탁드려요) 도커 컨테이너가 올라갈 때 고정 ip를 컨테이너에 부여하는 방식으로 해결할 수 있었다.
 
 
 

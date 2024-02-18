@@ -19,11 +19,11 @@ export default function Header() {
             about
           </div> */}
         </div>
-        <button id="menu-btn" className="z-30 mt-2 block md:hidden focus:outline-none hamburger" onClick={onClickMobileMenu}>
+        {/* <button id="menu-btn" className="z-30 mt-2 block md:hidden focus:outline-none hamburger" onClick={onClickMobileMenu}>
           <span className="hamburger-top bg-grayishBlack dark:bg-softWhite"></span>
           <span className="hamburger-middle bg-grayishBlack dark:bg-softWhite"></span>
           <span className="hamburger-bottom bg-grayishBlack dark:bg-softWhite"></span>
-        </button>
+        </button> */}
 
       </div>
 
@@ -33,11 +33,11 @@ export default function Header() {
   );
 }
 
-function onClickMobileMenu() {
-  const btn = document.getElementById('menu-btn');
-  const menu = document.getElementById('mobile-menu');
+// function onClickMobileMenu() {
+//   const btn = document.getElementById('menu-btn');
+//   const menu = document.getElementById('mobile-menu');
 
-  btn!.classList.toggle('open');
-  menu!.classList.toggle('flex');
-  menu!.classList.toggle('hidden');
-}
+//   btn!.classList.toggle('open');
+//   menu!.classList.toggle('flex');
+//   menu!.classList.toggle('hidden');
+// }

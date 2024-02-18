@@ -1,0 +1,3 @@
+tag = ["docker", "couchdb", "network issue"]
+date = "2024-02-18"  
+title = "docker 기반 couchdb 클러스터 세팅 시 네트워크 설정법"

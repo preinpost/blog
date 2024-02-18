@@ -15,9 +15,9 @@ export default function Header() {
         <div className="flex space-x-6 pr-6">
           {/* Dark/Light Mode Button */}
 
-          <div className="hidden justify-end items-center text-xl cursor-pointer text-grayishBlack font-bold dark:text-white md:flex" onClick={() => { router.push("/about") }}>
+          {/* <div className="hidden justify-end items-center text-xl cursor-pointer text-grayishBlack font-bold dark:text-white md:flex" onClick={() => { router.push("/about") }}>
             about
-          </div>
+          </div> */}
         </div>
         <button id="menu-btn" className="z-30 mt-2 block md:hidden focus:outline-none hamburger" onClick={onClickMobileMenu}>
           <span className="hamburger-top bg-grayishBlack dark:bg-softWhite"></span>

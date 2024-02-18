@@ -68,11 +68,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return {
     title: meta.title,
-
     openGraph: {
       title: meta.title,
       images: `${blogUrl}${getTitleImagePathForClient(params.id)}`
-    }
+    },
+    keywords: [...meta.tag],
   }
 }
 

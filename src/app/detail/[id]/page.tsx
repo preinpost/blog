@@ -102,7 +102,7 @@ async function getHTML(params: PageId): Promise<ArticleDetail> {
   const imageNameList = getArticleImageList(params.id);
   imageNameList.forEach((i) => {
     html = html.replaceAll(i, `/article/${params.id}/${i}`);
-  })
+  });
 
   const parsed = readMetaFile(params.id);
 

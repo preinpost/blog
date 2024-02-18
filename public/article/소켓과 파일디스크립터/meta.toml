@@ -1,0 +1,3 @@
+tag = ["OS", "Socket", "File Descriptor", "C", "Linux"]
+date = "2022-07-16"  
+title = "소켓과 파일디스크립터"

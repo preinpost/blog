@@ -39,8 +39,9 @@
         --color-fg-subtle: #6e7781 !important;
         --color-canvas-default: #fff !important;
         --color-canvas-subtle: #f6f8fa !important;
-        --color-border-default: #2892ff !important;
-        --color-border-muted: #429fff !important;
+        --color-border-default: #d0d7de !important;
+        --color-border-muted: #d8dee4 !important;
+        --color-border-blockquote: #429fff !important;
         --color-neutral-muted: rgba(175, 184, 193, .2) !important;
         --color-accent-fg: #0969da !important;
         --color-accent-emphasis: #0969da !important;
@@ -92,6 +93,10 @@ p:has(> a > img) {
 
 .markdown-body img {
     background-color: inherit !important;
+}
+
+.markdown-body blockquote {
+    border-left: .25em solid var(--color-border-blockquote) !important;
 }
 
 /* HAMBURGER MENU */

@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 
 export const metadata = {
-  title: 'preinpost.log',
+  title: 'preinpost.in',
   description: 'blog',
 }
 

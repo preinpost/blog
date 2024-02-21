@@ -48,7 +48,7 @@ Test 버튼과 Check 버튼을 눌러서 정상적으로 되는지 확인하자
 
 ![preset](preset.png)
 
-Sync Mode를 수정해서 언제 동기화 되게 할 건지 입맛에 맛게 수정할 수 있다.
+Sync Mode를 수정해서 언제 동기화 되게 할 건지 수정할 수 있다.
 
 ![hidden](hidden.png)
 

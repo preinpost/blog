@@ -34,7 +34,7 @@ CouchDB 설치방법은 [이전 글](https://blog.preinpost.in/detail/docker%20%
 
 2번 탭을 눌러서 Setup wizard를 통해서 할 수도 있고 4번탭을 눌러서 직접 Remote Database 설정을 할 수도 있다.
 
-![db_setup](db%20setup.png)
+![db_setup](db_setup.png)
 
 개인정보들이 노트에 저장될 수 있으므로 왠만하면 도메인을 하나 따서 https로 적용하는게 좋을 것이다.
 

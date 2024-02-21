@@ -30,8 +30,8 @@ export default async function DetailPage({ params }: PageProps) {
       {
         getImage !== "" ?
           <div
-            className="flex justify-center my-14">
-            <Image src={getImage} alt={"title-image"} width={100} height={100} className="w-3/4 bg-softWhite dark:bg-grayishBlack" />
+            className="flex justify-center my-14 max-h-36 lg:max-h-64">
+            <Image src={getImage} alt={"title-image"} width={100} height={100} className="w-3/4 object-contain bg-softWhite dark:bg-grayishBlack" />
           </div>
           :
           <></>

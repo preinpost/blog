@@ -9,7 +9,7 @@ export default function Header() {
     <>
       <div className="flex items-center justify-between space-x-20 my-6 mb-24">
         <div className="text-2xl text-grayishBlack font-sans font-bold dark:text-white pl-3 cursor-pointer md:text-3xl" onClick={() => { router.push("/list/1") }}>
-          preinpost.log
+          preinpost.in
         </div>
 
         <div className="flex space-x-6 pr-6">

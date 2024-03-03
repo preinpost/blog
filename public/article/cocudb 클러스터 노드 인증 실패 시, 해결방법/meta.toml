@@ -1,0 +1,3 @@
+tag = ["couchdb", "cluster", "인증실패"]
+date = "2024-03-03"  
+title = "cocudb 클러스터 노드 인증 실패 시, 해결방법"

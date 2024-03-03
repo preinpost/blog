@@ -1,6 +1,6 @@
 couchdb와 obsidian-sync 플러그인으로 잘 사용하고 있다가, couchdb를 설치해 둔 linux서버를 reboot 할 일이 생겼었다.
 
-로그를 보니, master노드와 replica노드 간 인증문제 때문에 에러가 나고 있었다.
+reboot을 하고 로그를 보니, master노드와 replica노드 간 인증문제 때문에 에러가 나고 있었다.
 
 공식문서에도 자세히 안나와있어서 정확한 동작은 잘 모르겠지만.. 아래와 같이 하면 해결을 할 수 있다.
 
